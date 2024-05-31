@@ -1,0 +1,798 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  background-color: #181419;
+  color: white;
+}
+/*ESTILOS HEADER PARA ESCRITORIO*/
+.header {
+  background-color: #9f3641;
+  color: #ffffff;
+  height: 20vh;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  .navegador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 40px;
+    padding: 1.7rem 0;
+
+    .logo {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 2rem;
+      &:hover {
+        animation: anima-batido 0.25s infinite;
+      }
+    }
+    .lista {
+      list-style: none;
+      display: flex;
+      align-items: center;
+
+      .item {
+        margin-right: 20px;
+
+        .linkNav {
+          text-decoration: none;
+          color: #ffffff;
+          font-weight: 700;
+          font-size: 1.5rem;
+          padding: 0.5rem 1rem;
+
+          transition: transform 0.3s, box-shadow 0.3s;
+          &:hover {
+            transform: scale(0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 7px;
+          }
+        }
+        .linkNav.iniciarSesion {
+          background-color: #08010a;
+          color: white;
+          border-radius: 7px;
+          transition: transform 0.3s, box-shadow 0.3s;
+          &:hover {
+            background-color: #9f3641;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*ESTILOS HEADER MOBILE / TABLET*/
+
+@media (max-width: 768px) {
+  .header {
+    height: initial;
+    .navegador {
+      margin-left: 30px;
+      margin-right: 30px;
+      flex-direction: column;
+      row-gap: 10px;
+      .logo {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      .lista {
+        padding: initial;
+        .Item {
+          .linkNav {
+            font-weight: 250;
+            margin-right: initial;
+            font-size: 0.4rem;
+            padding: 0.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*ESTILOS PARA MAIN ESCRITORIO*/
+.main {
+  .presentacion {
+    color: white;
+    background: linear-gradient(to right top, #0000008a, #0000008a),
+      url(./img/banner-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .titPrincipal {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .titSecundario {
+      font-size: 2.1rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .btRegistrate {
+      background-color: #9f3647;
+      color: #ffffff;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      &:hover {
+        background-color: #9f3647;
+        transform: scale(0.95);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+  .sectionBuscador {
+    background-color: #181419;
+    color: white;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .tituloBuscador {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .buscadorPeliculas {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+      .buscador {
+        border: 2px solid white;
+        border-radius: 25px;
+        color: #ffffff;
+        font-size: 1.2rem;
+        height: 50px;
+        margin: 20px 0px;
+        outline: none;
+        padding: 0px 20px;
+        width: 500px;
+      }
+      .btBuscar {
+        background-color: #9f3647;
+        display: inline-block;
+        color: #ffffff;
+        height: 50px;
+        margin: 20px 10px;
+        padding: 0 20px;
+        border-radius: 25px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        border: 2px solid white;
+        text-align: center;
+
+        transition: transform 0.3s, box-shadow 0.3s;
+        &:hover {
+          background-color: #9f3647;
+          transform: scale(0.95);
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+  }
+  .tendencias {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+    .tituloTendencia {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    .contenedorPeliculas {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 80px;
+      a {
+        text-decoration: none;
+        color: #ffffff;
+        .pelicula {
+          width: 200px;
+          height: 300px;
+          position: relative;
+          overflow: hidden;
+          border-radius: 10px;
+          transition: all 0.5s ease;
+
+          .imagenT {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+          }
+
+          .tituloPelicula {
+            z-index: 2;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            max-width: 20rem;
+            width: 100%;
+            transform: translateY(-50%) translateX(-50%);
+            h4 {
+              font-size: 2rem;
+              font-weight: bold;
+              opacity: 0;
+              margin-bottom: 0.5rem;
+              letter-spacing: 0.1rem;
+              transition: opacity 0.5s ease-in-out;
+            }
+          }
+          &:hover {
+            box-shadow: 0 0 30px #e7b6becd;
+            transform: scale(1.1);
+          }
+          &:hover h4 {
+            opacity: 1;
+          }
+          &:hover::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            background-color: #9f36489e;
+            z-index: 1;
+          }
+        }
+      }
+    }
+
+    #btnAnterior,
+    #btnSiguiente {
+      border: 0.5px solid white;
+      box-sizing: content-box;
+      margin-top: 50px;
+      margin-left: 20px;
+      background-color: #9f3647;
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-decoration: none;
+      margin-bottom: 60px;
+
+      transition: transform 0.3s, box-shadow 0.3s;
+      &:hover {
+        background-color: #9f3647;
+        transform: scale(0.95);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+  .aclamadas {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    .tituloAclamadas {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    .contenedorAclamadas {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 0px 0px 40px 0px;
+      .peliculaItem {
+        border-radius: 25px;
+        width: 170px;
+        min-width: 170px;
+        font-size: 20px;
+        cursor: pointer;
+        margin-left: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .imagenA {
+          border-radius: 5%;
+          width: 95%;
+          height: 95%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    .presentacion {
+      height: 60vh;
+      .titPrincipal {
+        font-size: 2.5rem;
+      }
+      .titSecundario {
+        font-size: 1.5rem;
+      }
+      .btRegistrate {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+    .sectionBuscador {
+      height: 30vh;
+      .tituloBuscador {
+        font-size: 1.6rem;
+      }
+      .buscadorPeliculas {
+        .buscador {
+          font-size: 1rem;
+          height: 40px;
+          width: 300px;
+        }
+        .btBuscar {
+          height: 40px;
+          padding: 0 15px;
+          font-size: 1rem;
+        }
+      }
+    }
+    .tendencias {
+      width: 95%;
+      .tituloSection {
+        font-size: 2rem;
+      }
+      .contenedorPeliculas {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        a {
+          width: 100%;
+          .pelicula {
+            width: 100%;
+            height: 500px;
+
+            .tituloPelicula {
+              h4 {
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+        &:hover {
+          box-shadow: initial;
+          transform: scale(0.7);
+        }
+      }
+      .boton {
+        padding: 0.8rem 0.8rem;
+        font-size: 0.8rem;
+      }
+    }
+    .aclamadas {
+      .tituloAclamadas {
+        font-size: 2rem;
+      }
+      .contenedorAclamadas {
+        .peliculaItem {
+          width: 150px;
+          min-width: 150px;
+          font-size: 15px;
+          margin-left: 20px;
+          .imagenA {
+            width: 90%;
+            height: 90%;
+          }
+        }
+      }
+    }
+  }
+}
+/* ......................................... */
+/*ESTILOS FOOTER ESCRITORIO*/
+.footer {
+  background-color: #9f3647;
+  color: #ffffff;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .lista {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    .item {
+      margin-left: 20px;
+      .linkNav {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+      .administradorPeliculas {
+        background-color: #181419;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+      }
+    }
+  }
+  .flechaArriba {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    color: white;
+    cursor: pointer;
+  }
+}
+/* ......................................... */
+/*ESTILOS FOOTER CELULAR / TABLET */
+@media (max-width: 768px) {
+  .footer {
+    height: initial;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    .lista {
+      flex-direction: column;
+      row-gap: 15px;
+      .item {
+        .linkNav {
+          font-size: 0.9rem;
+        }
+        .administradorPeliculas {
+          padding: 0.5rem 0.8rem;
+        }
+      }
+    }
+  }
+}
+/* ......................................... */
+/* ESTILOS ESCRITORIO PARA PAG. REGISTRARSE */
+.bodyRegistro {
+  height: 100vh;
+  background: linear-gradient(to right top, #24242473, #24242473),
+    url("./img/bg-register.jpg");
+  background-size: cover;
+  background-position: center;
+  .headerRegistro {
+    color: #ffffff;
+    height: 8vh;
+    padding: 30px;
+    .logo {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.2rem;
+      &:hover {
+        animation: anima-batido 0.25s infinite;
+      }
+    }
+  }
+  .main {
+    .sectionRegistro {
+      background-color: rgb(42, 42, 42);
+      width: 30%;
+      margin: 0 auto;
+      border-radius: 5px;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+      font-size: 1.2rem;
+      .tituloRegistro {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      form {
+        width: 100%;
+        padding: 45px;
+        input:not(.check, .boton),
+        select {
+          font-size: 1.2rem;
+          margin-bottom: 20px;
+          width: 50%;
+          height: 40px;
+          padding: 0px 20px;
+          border-radius: 20px;
+          border: 2px solid #9f3647;
+          background-color: #333333;
+          outline: none;
+          color: white;
+        }
+        .terminos {
+          font-size: 0.8rem;
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+          .textoCheck {
+            margin-left: 10px;
+          }
+        }
+        .boton {
+          width: 87%;
+          box-sizing: content-box;
+          background-color: #9f3647;
+          border: 2px solid #9f3647;
+          color: #ffffff;
+          padding: 1rem 1rem;
+          border-radius: 5px;
+          font-size: 1rem;
+          font-weight: 500;
+        }
+        .ayuda {
+          margin-top: 40px;
+          font-size: 1rem;
+          text-decoration: none;
+          color: #787878;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+/* ......................................... */
+/*ESTILO CELULAR PAG. REGISTRARSE*/
+@media (max-width: 1200px) {
+  .bodyRegistro {
+    .headerRegistro {
+      padding: 20px;
+      .logo {
+        font-size: 1rem;
+      }
+    }
+    .main {
+      .sectionRegistro {
+        width: 95%;
+        padding: 10px 10px;
+        .tituloRegistro {
+          font-size: 2rem;
+        }
+        form {
+          width: 100%;
+          text-align: center;
+
+          input:not(.check, .boton),
+          select {
+            width: 80%;
+            height: 35px;
+            font-size: 1rem;
+          }
+          .terminos {
+            width: 80%;
+            margin: 0 auto;
+            font-size: 0.7rem;
+          }
+          .boton {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 70%;
+            padding: 0.8rem 0.8rem;
+            font-size: 0.8rem;
+          }
+          .ayuda {
+            text-align: left;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+/* ......................................... */
+/*ESTILOS ESCRITORIO PAG. DETALLE*/
+.mainDetalle {
+  .detalle {
+    padding-top: 50px;
+    background: linear-gradient(to right top, #0000008a, #0000008a),
+      url("./img/kunfu\ panda\ bg.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    .contenedorDetalle {
+      width: 75%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 60px;
+      img {
+        border-radius: 20px;
+      }
+      .textoDetalle {
+        h1 {
+          font-size: 2.2rem;
+          font-weight: 700;
+        }
+        h2 {
+          margin-top: 20px;
+        }
+        .contenedorCreditos {
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+  .trailer {
+    padding-top: 150px;
+    padding-bottom: 100px;
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 70px;
+    .contenedorInfo {
+      .redes {
+        margin-bottom: 20px;
+        ul {
+          list-style: none;
+          display: flex;
+          column-gap: 20px;
+          li {
+            a {
+              text-decoration: none;
+              color: #ffffff;
+              font-size: 2.5rem;
+              margin-right: 50px;
+            }
+          }
+        }
+      }
+      .info {
+        table {
+          width: 100%;
+          tr {
+            td {
+              font-size: 1.2rem;
+              padding: 10px 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* ......................................... */
+/*ESTILOS CELULAR / TABLETS PAG. DETALLE*/
+@media (max-width: 1200px) {
+  .mainDetalle {
+    .detalle {
+      height: initial;
+      .contenedorDetalle {
+        flex-direction: column;
+        row-gap: 20px;
+        img {
+          width: 100%;
+          height: 300px;
+        }
+        .textoDetalle {
+          h1 {
+            font-size: 1.5rem;
+          }
+          h2 {
+            font-size: 1rem;
+          }
+          .contenedorCreditos {
+            flex-direction: column;
+            row-gap: 10px;
+          }
+        }
+      }
+    }
+    .trailer {
+      width: 95%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      flex-direction: column;
+      row-gap: 20px;
+      .contenedorTrailer {
+        width: 100%;
+        h2 {
+          margin-bottom: 20px;
+        }
+        iframe {
+          width: 100%;
+          height: 300px;
+        }
+      }
+      .contenedorInfo {
+        width: 100%;
+        .redes {
+          width: 100%;
+          ul {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            li {
+              a {
+                font-size: 2rem;
+                margin-right: 20px;
+              }
+            }
+          }
+        }
+        .info {
+          table {
+            tr {
+              td {
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+hr {
+  border: 1px solid #9f3647;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+/* ......................................... */
+/* ESTILO BARRA SCROLL */
+
+::-webkit-scrollbar-track {
+  background: rgba(23, 23, 23, 0);
+}
+::-webkit-scrollbar-thumb {
+  background: #9f36414e;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9f3641;
+}
+/* .........................................*/
+/* ANIMACION BATIDO */
+
+@keyframes anima-batido {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  40% {
+    transform: translate(2px, 2px) rotate(15deg);
+  }
+  70% {
+    transform: translate(-2px, 2px) rotate(-15deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
